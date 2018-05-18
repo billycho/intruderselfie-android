@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Intruder Selfie</string>
+    <string name="info">Intruder Selfie App. Make your phone takes a picture everytime you unlock it.
+        \nPhotos will be saved in your Picture/iSelfie folder.</string>
 </resources>
