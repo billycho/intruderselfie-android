@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     startBackgroundService();
                     cameraServiceRunning = true;
-                    button.setText("Disable iSelfie");
+
                 }
             }
         });
@@ -86,8 +86,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private boolean checkPermission()
     {
-        int result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-        if(result == PackageManager.PERMISSION_DENIED)
+        int cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        int storagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if(cameraPermission == PackageManager.PERMISSION_DENIED || storagePermission == PackageManager.PERMISSION_DENIED)
         {
             return true;
         } else
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case 101:
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     startBackgroundService();
                     button.setText("Disable iSelfie");
                 } else {

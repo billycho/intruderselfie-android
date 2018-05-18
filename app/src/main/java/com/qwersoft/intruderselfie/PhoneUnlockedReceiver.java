@@ -17,16 +17,14 @@ public class PhoneUnlockedReceiver extends BroadcastReceiver {
         if (intent.getAction().equals(Intent.ACTION_USER_PRESENT)){
             CameraManager mgr = new CameraManager(context);
             mgr.takePhoto();
-
-            Log.d("asdaxxx", "Phone unlocked");
-            Toast.makeText(context,"Unlocked",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Photo saved to Pictures\\iSelfie",Toast.LENGTH_SHORT).show();
 
         }else if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)){
             Log.d("asdaxxx", "Phone locked");
         }
         else if (intent.getAction().equals(Intent.ACTION_SCREEN_ON)){
             Log.d("asdaxxx", "Power On");
-            Toast.makeText(context,"Power On",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"Power On",Toast.LENGTH_SHORT).show();
 
         }
 
