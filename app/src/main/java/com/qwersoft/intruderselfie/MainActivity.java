@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 else
                 {
                     startBackgroundService();
-                    cameraServiceRunning = true;
+                    //cameraServiceRunning = true;
 
                 }
             }
@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             Intent i = new Intent(this, CameraService.class);
             startService(i);
             button.setText("Disable iSelfie");
+            cameraServiceRunning = true;
         }
 
     }
@@ -109,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     startBackgroundService();
                     button.setText("Disable iSelfie");
+                    cameraServiceRunning = true;
                 } else {
                     //not granted
                 }
